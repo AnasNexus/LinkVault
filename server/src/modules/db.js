@@ -13,6 +13,7 @@ db.getConnection((error , connection) => {
         return;
     };
     connection.release();
+    console.log("Connected Successfuly to DB")
 });
 
 module.exports = db;
