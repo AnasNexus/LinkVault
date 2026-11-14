@@ -1,4 +1,3 @@
-
 // Load Environment Variables
 require("dotenv").config();
 
@@ -13,9 +12,11 @@ const port = process.env.PORT;
 const app = express();
 
 // Configure CORS Middleware
-app.use(cors({
-    origin: "*"
-}));
+app.use(
+  cors({
+    origin: "*",
+  }),
+);
 
 // Configure Body Parsing Middleware
 app.use(express.json());
@@ -26,9 +27,13 @@ const auth = require("./modules/auth");
 const start = require("./modules/StartServer");
 const AuthAPI = require("./routers/auth");
 const user = require("./routers/user");
+const links = require("./routers/links");
+const categary = require("./routers/categary");
 
 // Register API Routes
 app.use("/api/auth", AuthAPI);
-app.use("/api/user" ,auth, user)
+app.use("/api/user", auth, user);
+app.use("/api/links", auth, links);
+app.use("/api/categary", auth, categary);
 // Start Express Server
 start(app, port);

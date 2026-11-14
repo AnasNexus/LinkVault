@@ -3,7 +3,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 // Import db.js file
-const db = require("./db");
+const db = require("./../modules/db");
 // Initialization jwt secret from .env file
 const secret = process.env.JWT_SECRET;
 // Initialization AuthAPI Varuable
